@@ -11,6 +11,7 @@ Requires(pre):	apache-mpm-prefork
 Requires:	apache-mpm-prefork
 Requires(post): rpm-helper
 Requires(postun): rpm-helper
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 MimeTeX lets you easily embed LaTeX math in your html pages. It parses a LaTeX
