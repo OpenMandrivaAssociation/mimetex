@@ -1,8 +1,8 @@
 Summary:        Easily embed LaTeX math in web pages
 Name:           mimetex
-Version:        1.64
-Release:        %mkrel 2
-License:        GPL
+Version:        1.70
+Release:        %mkrel 1
+License:        GPLv3
 Group:          System/Servers
 URL:            http://www.forkosh.com/mimetex.html
 Source0:        http://www.forkosh.com/%{name}.zip
@@ -63,7 +63,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%doc LICENSE README
+%doc COPYING README
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf
 /var/www/cgi-bin/%{name}.cgi
 /var/www/html/%{name}.html
