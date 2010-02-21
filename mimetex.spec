@@ -1,17 +1,17 @@
 Summary:        Easily embed LaTeX math in web pages
 Name:           mimetex
 Version:        1.71
-Release:        %mkrel 3
+Release:        %mkrel 4
 License:        GPLv3
 Group:          System/Servers
 URL:            http://www.forkosh.com/mimetex.html
 Source0:        http://www.forkosh.com/%{name}.zip
-BuildRequires:	apache-base >= 2.0.54
-Requires(pre):	apache-mpm-prefork
-Requires:	apache-mpm-prefork
-Requires(post): rpm-helper
-Requires(postun): rpm-helper
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Requires:       webserver
+%if %mdkversion < 201010
+Requires(post):   rpm-helper
+Requires(postun):   rpm-helper
+%endif
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 MimeTeX lets you easily embed LaTeX math in your html pages. It parses a LaTeX
@@ -20,7 +20,6 @@ the usual TeX dvi. And mimeTeX is an entirely separate little program that
 doesn't use TeX or its fonts in any way.
 
 %prep
-
 %setup -q -c
 
 %build
@@ -44,19 +43,20 @@ install -d %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d
 cat > %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf << EOF
 
 <LocationMatch /cgi-bin/%{name}.cgi>
-    Order Deny,Allow
-    Deny from All
-    Allow from 127.0.0.1
-    ErrorDocument 403 "Access denied per %{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf"
+    Order deny,allow
+    Allow from all
 </LocationMatch>
-
 EOF
 
 %post
+%if %mdkversion < 201010
 %_post_webapp
+%endif
 
 %postun
+%if %mdkversion < 201010
 %_postun_webapp
+%endif
 
 %clean
 rm -rf %{buildroot}
@@ -64,7 +64,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %doc COPYING README
-%attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf
+%config(noreplace) %{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf
 /var/www/cgi-bin/%{name}.cgi
 /var/www/html/%{name}.html
 %attr(0755,apache,apache) %dir /var/cache/%{name}
