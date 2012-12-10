@@ -68,3 +68,57 @@ rm -rf %{buildroot}
 /var/www/cgi-bin/%{name}.cgi
 /var/www/html/%{name}.html
 %attr(0755,apache,apache) %dir /var/cache/%{name}
+
+
+%changelog
+* Mon Dec 06 2010 Oden Eriksson <oeriksson@mandriva.com> 1.71-5mdv2011.0
++ Revision: 612867
+- the mass rebuild of 2010.1 packages
+
+* Sun Feb 21 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1.71-4mdv2010.1
++ Revision: 509195
+- rely on filetrigger for reloading apache configuration begining with 2010.1, rpm-helper macros otherwise
+
+* Sun Dec 27 2009 Oden Eriksson <oeriksson@mandriva.com> 1.71-3mdv2010.1
++ Revision: 482814
+- newer source, same version
+
+* Mon Jun 22 2009 Oden Eriksson <oeriksson@mandriva.com> 1.71-2mdv2010.0
++ Revision: 387974
+- newer code
+
+* Wed May 27 2009 Oden Eriksson <oeriksson@mandriva.com> 1.71-1mdv2010.0
++ Revision: 380116
+- 1.71
+
+* Sun Sep 07 2008 Oden Eriksson <oeriksson@mandriva.com> 1.70-1mdv2009.0
++ Revision: 282156
+- 1.70
+
+* Sun Jul 20 2008 Oden Eriksson <oeriksson@mandriva.com> 1.64-2mdv2009.0
++ Revision: 239063
+- rebuild
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Tue Aug 21 2007 Oden Eriksson <oeriksson@mandriva.com> 1.64-1mdv2008.0
++ Revision: 68452
+- Import mimetex
+
+
+
+* Tue Aug 21 2007 Oden Eriksson <oeriksson@mandriva.com> 1.64-1mdv2008.0
+- initial Mandriva package
+
+* Sun Sep 17 2006 Jorge Torres <jtorresh@gmail.com> 1.60-3
+- Rebuild for Fedora Extras 6
+
+* Mon Feb 13 2006 Ignacio Vazquez-Abrams <ivazquez@ivazquez.net> 1.60-2
+- Rebuild for Fedora Extras 5
+
+* Sun Oct  9 2005 Ignacio Vazquez-Abrams <ivazquez@ivazquez.net> 1.60-1
+- Initial RPM release
