@@ -1,12 +1,14 @@
 Summary:        Easily embed LaTeX math in web pages
 Name:           mimetex
 Version:        1.71
-Release:        8
+Release:        9
 License:        GPLv3
 Group:          System/Servers
 URL:            http://www.forkosh.com/mimetex.html
 Source0:        http://www.forkosh.com/%{name}.zip
 Requires:       webserver
+# actually, only if webserver is apache, but there is no syntax for such aa condition
+Requires:       apache-mod_socache_shmcb
 
 %description
 MimeTeX lets you easily embed LaTeX math in your html pages. It parses a LaTeX
