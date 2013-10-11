@@ -43,8 +43,7 @@ install -d %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d
 cat > %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf << EOF
 
 <LocationMatch /cgi-bin/%{name}.cgi>
-    Order deny,allow
-    Allow from all
+    Require all granted
 </LocationMatch>
 EOF
 
