@@ -1,17 +1,12 @@
 Summary:        Easily embed LaTeX math in web pages
 Name:           mimetex
 Version:        1.71
-Release:        7
+Release:        8
 License:        GPLv3
 Group:          System/Servers
 URL:            http://www.forkosh.com/mimetex.html
 Source0:        http://www.forkosh.com/%{name}.zip
 Requires:       webserver
-%if %mdkversion < 201010
-Requires(post):   rpm-helper
-Requires(postun):   rpm-helper
-%endif
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 MimeTeX lets you easily embed LaTeX math in your html pages. It parses a LaTeX
@@ -28,8 +23,6 @@ doesn't use TeX or its fonts in any way.
 gcc $CFLAGS -DAA -DCACHEPATH=\"/var/cache/%{name}/\" mimetex.c gifsave.c -lm -o mimetex.cgi
 
 %install
-rm -rf %{buildroot}
-
 install -d %{buildroot}/var/www/cgi-bin
 install -d %{buildroot}/var/www/html
 install -d %{buildroot}/var/cache/%{name}
@@ -48,12 +41,9 @@ cat > %{buildroot}%{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf << EOF
 EOF
 
 
-
 %clean
-rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root,-)
 %doc COPYING README
 %config(noreplace) %{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf
 /var/www/cgi-bin/%{name}.cgi
