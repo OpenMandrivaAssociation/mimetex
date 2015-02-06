@@ -1,7 +1,7 @@
 Summary:        Easily embed LaTeX math in web pages
 Name:           mimetex
 Version:        1.71
-Release:        9
+Release:        10
 License:        GPLv3
 Group:          System/Servers
 URL:            http://www.forkosh.com/mimetex.html
