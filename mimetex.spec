@@ -4,7 +4,7 @@ Version:	1.77
 Release:	1
 License:        GPLv3
 Group:          System/Servers
-URL:            http://www.forkosh.com/mimetex.html
+URL:            https://www.forkosh.com/mimetex.html
 Source0:        http://www.forkosh.com/%{name}.zip
 Requires:       webserver
 # actually, only if webserver is apache, but there is no syntax for such aa condition
